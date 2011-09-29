@@ -1,0 +1,33 @@
+<{includeq file='db:library_header.html'}>
+
+<div id="library-collection-container">
+
+	<!-- list recent publications across all collections -->
+
+	<div><h1><{$smarty.const._MI_LIBRARY_NEW_ITEMS}></h1>
+	</div>
+
+	<!-- compact view -->
+
+	<{if $library_new_compact_view == 1}>
+
+	<div id="library-publication-container">
+		<{$library_publication_table}>
+	</div>
+
+	<!-- extended view -->
+
+	<{else}>
+	<{if $library_new_publications}>
+	<div id="library-publication-container">
+		<{foreach item=library_publication from = $library_new_publications}>
+		<{include file=$library_publication.subtemplate}>
+		<{/foreach}>
+		<!-- navbar -->
+		<{if $library_navbar}><{$library_navbar}><{/if}>
+	</div>
+	<{/if}>
+	<{/if}>
+</div>
+
+<{includeq file='db:library_footer.html'}>

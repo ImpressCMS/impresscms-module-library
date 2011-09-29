@@ -1,0 +1,54 @@
+<!-- display one collection and its publications -->
+
+<{if $library_publication}>
+<div id="library-collection-container">
+
+	<{include file="db:library_collection_description.html"}>
+
+	<!-- list publications in this library -->
+
+	<{if $library_collection_publications}>
+	<h2><{$smarty.const._CO_LIBRARY_CONTENTS}></h2>
+
+	<!-- compact view of collection contents -->
+
+	<{if $library_publication.compact_view == 1}>
+	<div id="library-publication-container">
+		<table>
+			<{foreach item=library_publication from = $library_collection_publications}>
+			<{include file="db:library_compact.html"}>
+			<{/foreach}>
+		</table>
+	</div>
+
+	<!-- extended view -->
+
+	<{else}>
+	<div id="library-publication-container">
+		<{foreach item=library_publication from = $library_collection_publications}>
+		<{include file=$library_publication.subtemplate}>
+		<{/foreach}>
+	</div>
+	<{/if}>
+	<{/if}>
+</div>
+<{/if}>
+
+<!-- list collections as summaries -->
+
+<{if $library_collection_table || $library_collection_array}>
+	<h1><{$library_title}></h1>
+<{/if}>
+
+<{if $library_collection_table}><{$library_collection_table}>
+<{else if $library_collection_array}>
+<div id="library-collection-container">
+	<{foreach item=library_publication from=$library_collection_array}>
+	<{include file='db:library_collection_description.html'}>
+	<{/foreach}>
+</div>
+<{/if}>
+
+<!-- pagination -->
+
+<{if $library_navbar }><{$library_navbar}><{/if}>

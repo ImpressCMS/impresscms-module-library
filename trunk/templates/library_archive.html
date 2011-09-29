@@ -1,0 +1,33 @@
+<{includeq file='db:library_header.html'}>
+
+<h2><{$smarty.const._CO_LIBRARY_ARCHIVE_ABOUT_THIS_ARCHIVE}></h2>
+<{if $library_archive}>
+<div id="archive-archive-container">
+	<div>
+		<p class="library_separator"><{$smarty.const._CO_LIBRARY_ARCHIVE_OAIPMH_TARGET}></p>
+	</div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_REPOSITORY_NAME}></strong>:
+		<{$library_archive.repository_name}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_METADATA_PREFIX}></strong>:
+		<{$library_archive.metadata_prefix}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_GRANULARITY}></strong>:
+		<{$library_archive.granularity}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_DELETED_RECORD}></strong>:
+		<{$library_archive.deleted_record}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_EARLIEST_DATE_STAMP}></strong>:
+		<{$library_archive.earliest_date_stamp}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_ADMIN_EMAIL}></strong>:
+		<{$library_archive.admin_email}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_PROTOCOL_VERSION}></strong>:
+		<{$library_archive.protocol_version}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_BASE_URL}></strong>:
+		<{$library_archive.base_url}></div>
+	<div><strong><{$smarty.const._CO_LIBRARY_ARCHIVE_COMPRESSION}></strong>:
+		<{$library_archive.compression}></div>
+
+</div>
+<{else}>
+<{$smarty.const._CO_LIBRARY_ARCHIVE_NOT_AVAILABLE}>
+<{/if}>
+
+<{includeq file='db:library_footer.html'}>

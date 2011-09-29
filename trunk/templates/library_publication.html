@@ -1,0 +1,27 @@
+<{includeq file='db:library_header.html'}>
+
+<{if $library_publication}>
+<div id="library-publication-container">
+	<{include file=$library_publication.subtemplate}>
+</div>
+<{/if}>
+
+<{if $library_publication_array}>
+<h1><{if $library_new_rss_button}><{$library_new_rss_button}><{/if}> <{$library_title}></h1>
+<{foreach item=library_publication from=$library_publication_array}>
+<div class="library_separator">
+	<{include file=$library_publication.subtemplate}>
+</div>
+<{/foreach}>
+<div>
+	<!-- navbar -->
+	<{if $library_navbar}><{$library_navbar}><{/if}>
+</div>
+<{/if}>
+
+<{if $library_publication_table}>
+<h1><{if $library_new_rss_button}><{$library_new_rss_button}><{/if}> <{$library_title}></h1>
+<{$library_publication_table}>
+<{/if}>
+
+<{includeq file='db:library_footer.html'}>

@@ -1,0 +1,8 @@
+<div><{$library_publication.itemLink}>
+	<{if $library_publication.identifier}>
+	(<{if $library_publication.format }><{$library_publication.format}>, <{$library_publication.file_size}><{/if}>
+	<{if $library_publication.download}><{$library_publication.download}><{/if}>
+	<{if $library_publication.streaming}><{$library_publication.streaming}><{/if}>)
+	<{/if}>
+</div>
+<div class="library_separator"><{$library_publication.creator}> (<{$library_publication.date}>)</div>

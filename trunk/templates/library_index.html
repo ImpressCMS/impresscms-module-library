@@ -1,0 +1,39 @@
+<{includeq file='db:library_header.html'}>
+
+<{foreach item=library_post from=$library_posts}>
+<div class="library_post_container">
+
+	<div class="post-date">
+		<span class="month"><{$library_post.post_month_short}></span>
+		<span class="day"><{$library_post.post_day_number}></span>
+	</div>
+	<h1 class="post-title"><{$library_post.itemLink}></h1>
+	<div class="library_post_info"><{$library_post.post_info}> <{$smarty.const._CO_LIBRARY_POST_BY}> <img src="<{$library_images_url}>user.gif" alt="" /> <{$library_post.post_uid}>
+		<{if $library_post.categories}>
+		<div class="left_main">
+			<div class="library_post_filed_under"><{$smarty.const._CO_LIBRARY_FILED_UNDER}></div>
+			<div class="library_post_categories">
+				<{foreach item=category from=$library_post.categories name=loop}>
+				<a href="index.php?cid=<{$category.id}>"><{$category.title}></a><{if !$smarty.foreach.loop.last}>, <{/if}>
+				<{/foreach}>
+			</div>
+		</div>
+		<{/if}>
+	</div>
+	<div class="library_post_content">
+		<{$library_post.post_lead}>
+	</div>
+
+	<div class="library_post_comments">
+		<{$library_post.post_comment_info}>
+	</div>
+	<{if $library_post.userCanEditAndDelete}>
+	<div class="library_admin_links"><{$library_post.editItemLink}><{$library_post.deleteItemLink}></div>
+	<{/if}>
+</div>
+<{/foreach}>
+<{if $navbar}>
+<div id="library_navbar"><{$smarty.const._MD_LIBRARY_NAV_PAGES}> <{$navbar}></div>
+<{/if}>
+
+<{includeq file='db:library_footer.html'}>

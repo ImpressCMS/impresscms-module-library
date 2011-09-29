@@ -1,0 +1,43 @@
+<{includeq file='db:library_header.html'}>
+
+<!-- display a list of top level categories -->
+
+<{if $library_categories}>
+<{foreach item=category from=$library_categories}>
+<div><h2><{$category}></h2></div>
+<{/foreach}>
+<{/if}>
+
+<!-- breadcrumb -->
+<div><h2><{if $library_parent_link}><{$library_parent_link}> >> <{/if}>
+<{if $library_category_link}><{$library_category_link}><{/if}></h2></div>
+<{if $library_child_link}>
+<div><ul>
+<{foreach item=child from=$library_child_link}>
+<li><h3><{$child}></h3></li>
+<{/foreach}>
+</ul></div>
+<{/if}>
+
+<!-- display the contents of a single category -->
+
+<{if $library_publication_array}>
+<h2><{$smarty.const._CO_LIBRARY_CONTENTS}></h2>
+<h1><{if $library_new_rss_button}><{$library_new_rss_button}><{/if}> <{$library_title}></h1>
+<{foreach item=library_publication from=$library_publication_array}>
+<div class="library_separator">
+	<{include file=$library_publication.subtemplate}>
+</div>
+<{/foreach}>
+<div>
+	<!-- navbar -->
+	<{if $library_navbar}><{$library_navbar}><{/if}>
+</div>
+<{/if}>
+
+<{if $library_publication_table}>
+<h1><{if $library_new_rss_button}><{$library_new_rss_button}><{/if}> <{$library_title}></h1>
+<{$library_publication_table}>
+<{/if}>
+
+<{includeq file='db:library_footer.html'}>
